@@ -1,0 +1,71 @@
+@import "cardDimensions.scss";
+
+.iot {
+    position: $position;
+    left: 1%;
+    right: 0%;
+    top: 17%;
+    bottom: 26.29%;
+    width: $width;
+    height: $height;
+
+    background: #FFFFFF;
+    border: 20px solid #CE8CE6;
+    box-shadow: $box-shadow;
+}
+
+.dataScience {
+position: $position;
+left: 22%;
+right: 0%;
+top: 17%;
+bottom: 26.29%;
+width: $width;
+height: $height;
+
+background: #FFFFFF;
+border: 20px solid #EBF8CF;
+box-shadow: $box-shadow
+}
+
+.analytics {
+    position: $position;
+    left: 43%;
+    right: 0%;
+    top: 17%;
+    bottom: 26.29%;
+    width: $width;
+    height: $height;
+
+    background: #FFFFFF;
+    border: 20px solid #FADFB7;
+    box-shadow: $box-shadow;
+}
+
+.testing {
+    position: $position;
+    left: 64%;
+    right: 0%;
+    top: 17%;
+    bottom: 26.29%;
+    width: $width;
+    height: $height;
+
+    background: #FFFFFF;
+    border: 20px solid #DBF8B7;
+    box-shadow: $box-shadow;
+}
+
+.mobile {
+    position: $position;
+    left: 84%;
+    right: 0%;
+    top: 17%;
+    bottom: 26.29%;
+     width: $width;
+     height: $height;
+
+    background: #FFFFFF;
+    border: 20px solid #D5D7FB;
+    box-shadow: $box-shadow;
+}
