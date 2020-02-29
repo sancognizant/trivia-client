@@ -62,10 +62,24 @@ box-shadow: $box-shadow
     right: 0%;
     top: 17%;
     bottom: 26.29%;
-     width: $width;
-     height: $height;
+    width: $width;
+    height: $height;
 
     background: #FFFFFF;
     border: 20px solid #D5D7FB;
+    box-shadow: $box-shadow;
+}
+
+.cloud {
+    position: $position;
+    left: 1%;
+    right: 0%;
+    top: 60%;
+    bottom: 15%;
+    width: $width;
+    height: $height;
+
+    background: #FFFFFF;
+    border: 20px solid #F2EF99;
     box-shadow: $box-shadow;
 }
