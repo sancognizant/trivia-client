@@ -1,0 +1,48 @@
+.back {
+    /* Button Secondary */
+
+    position: absolute;
+    left: 60.01%;
+    right: 20.08%;
+    top: 85.94%;
+    bottom: 5.76%;
+
+    background: #FDEC50;
+    mix-blend-mode: darken;
+
+
+    /* Background */
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    border: 1px solid #37C1FF;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+
+    /* Text */
+
+    position: absolute;
+    height: 54px;
+    left: 46.9%;
+    right: 0%;
+    //top: calc(50% - 54px/2 + 0.5px);
+    top: 80%;
+    bottom: 5%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 134.77%;
+    /* identical to box height, or 54px */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #37C1FF;
+}

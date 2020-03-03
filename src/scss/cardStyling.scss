@@ -83,3 +83,114 @@ box-shadow: $box-shadow
     border: 20px solid #F2EF99;
     box-shadow: $box-shadow;
 }
+
+.microservices{
+position: $position;
+left: 22%;
+right: 0%;
+top: 60%;
+bottom: 15%;
+width: $width;
+height: $height;
+
+background: #FFFFFF;
+border: 20px solid #BFD1ED;
+box-shadow: $box-shadow;
+}
+
+.ui {
+position: $position;
+left: 43%;
+right: 0%;
+top: 60%;
+bottom: 15%;
+width: $width;
+height: $height;
+
+background: #FFFFFF;
+border: 20px solid #ECF2E3;
+box-shadow: $box-shadow;
+}
+
+.design {
+position: $position;
+left: 64%;
+right: 0%;
+top: 60%;
+bottom: 15%;
+width: $width;
+height: $height;
+
+background: #FFFFFF;
+border: 20px solid #CE8CE5;
+box-shadow: $box-shadow;
+}
+
+.cybersecurity {
+position: $position;
+left:  84%;
+right: 0%;
+top: 60%;
+bottom: 15%;
+width: $width;
+height: $height;
+
+background: #FFFFFF;
+border: 20px solid #DC90A1;
+box-shadow: $box-shadow;
+}
+
+.dataScience1 {
+position: $position;
+left: 22%;
+right: 0%;
+top: 20%;
+bottom: 26.29%;
+width: $widthDataScience;
+height: $heightDataScience;
+
+background: #FFFFFF;
+border: 20px solid #EBF8CF;
+}
+
+.dataScience2 {
+    position: $position;
+    left: 52%;
+    right: 0%;
+    top: 20%;
+    bottom: 26.29%;
+    width: $widthDataScience;
+    height: $heightDataScience;
+    
+    background: #FFFFFF;
+    border: 20px solid #EBF8CF;
+}
+
+.analytics1 {
+    position: $position;
+    left: 22%;
+    right: 0%;
+    top: 20%;
+    bottom: 26.29%;
+    width: $widthDataScience;
+    height: $heightDataScience;
+    
+    background: #FFFFFF;
+    border: 20px solid #FADFB7;
+}
+    
+.analytics2 {
+        position: $position;
+        left: 52%;
+        right: 0%;
+        top: 20%;
+        bottom: 26.29%;
+        width: $widthDataScience;
+        height: $heightDataScience;
+        
+        background: #FFFFFF;
+        border: 20px solid #FADFB7;
+}
+
+
+    
