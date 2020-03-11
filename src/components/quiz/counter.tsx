@@ -12,7 +12,7 @@ const Counter = ({ totalNumber, activeNumber }) => {
 	const [ active, setActive ] = useState(0);
 	/*
     initialize the number of items to be displayed and the active question number
- */
+    */
 
 	useEffect(
 		() => {
@@ -36,7 +36,7 @@ const Counter = ({ totalNumber, activeNumber }) => {
 				setItems(itemsCopy);
 			}
 		},
-		[ active ]
+		[active, questionLength]
 	);
 
 	return <Pagination>{items}</Pagination>;
