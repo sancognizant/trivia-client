@@ -5,7 +5,7 @@ import '../../scss/buttonStyle.scss';
 import Button from '../button';
 import Malware from '../../images/malware.jpg';
 import Privacy from '../../images/privacy.png';
-import Databreach from '../../images/databreach.jfif';
+import Databreach from '../../images/databreach.png';
 
 
 
@@ -15,7 +15,7 @@ const CyberSecurity = () => {
         <Card styles = "cyber1" image = {Malware}/>
         <Card styles = "cyber2" image = {Privacy}/>
         <Card styles = "cyber3" image = {Databreach}/>
-        <Button text = "Back" styles = "back"/>
+            <Button text="Back" styles="back" onClick=""/>
     </React.Fragment>
      );
 }

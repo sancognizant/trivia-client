@@ -11,7 +11,7 @@ const Mobile = () => {
         <React.Fragment>
         <Card styles = "mobile1" image = {Android}/>
         <Card styles = "mobile2" image = {Ios}/>
-        <Button text = "Back" styles = "back"/>
+        <Button text="Back" styles="back" onClick=""/>
       </React.Fragment>
       );
 }

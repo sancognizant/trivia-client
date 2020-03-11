@@ -11,7 +11,7 @@ import QuizInterface from './components/quiz/quizInterface';
 import Counter from './components/quiz/counter';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       {/* <DashBoard/> */}
@@ -21,9 +21,9 @@ function App() {
       {/* <Mobile/> */}
       {/* <Cloud/> */}
       {/* <UI/> */}
-    {/* <CyberSecurity/> */}
-    <QuizInterface/>
-    {/* <Counter/> */}
+      {/* <CyberSecurity/> */}
+      {/* <QuizInterface/> */}
+      {/* <Counter/> */}
     </div>
   );
 }

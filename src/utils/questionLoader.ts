@@ -1,5 +1,5 @@
 
- const questions = 
+ const questions: {question: string, choices: string, answer: number}[] = 
  [
     {question: 'Who is the president of the USA?',
     choices: "Obama|Trump|Lincon",

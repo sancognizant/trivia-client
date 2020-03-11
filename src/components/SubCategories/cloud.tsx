@@ -13,7 +13,7 @@ const Cloud = () => {
         <Card styles = "cloud1" image = {Azure}/>
         <Card styles = "cloud2" image = {Aws}/>
         <Card styles = "cloud3" image = {Gcp}/> 
-        <Button text = "Back" styles = "back"/>
+        <Button text="Back" styles="back" onClick=""/>
       </React.Fragment>
       );
 }

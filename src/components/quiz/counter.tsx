@@ -6,7 +6,7 @@ import Pagination from 'react-bootstrap/Pagination';
     questionLength: total number of questions
     active: current question
 */ 
-const Counter = ({ totalNumber, activeNumber }) => {
+const Counter = ({ totalNumber, activeNumber }: {totalNumber: number, activeNumber: number}) => {
 	const [ items, setItems ] = useState([]);
 	const [ questionLength, setQuestionLength ] = useState(0);
 	const [ active, setActive ] = useState(0);
@@ -25,7 +25,7 @@ const Counter = ({ totalNumber, activeNumber }) => {
 	useEffect(
 		() => {
 			if (active <= questionLength) {
-				let itemsCopy = [];
+				let itemsCopy: any = [];
 				for (let number = 1; number <= questionLength; number++) {
 					itemsCopy.push(
 						<Pagination.Item key={number} active={number === active}>

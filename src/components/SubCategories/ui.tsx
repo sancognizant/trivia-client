@@ -5,7 +5,7 @@ import '../../scss/buttonStyle.scss';
 import Button from '../button';
 import Angular from '../../images/angular.png';
 import ReactLogo from '../../images/React.png';
-import Vue from '../../images/vue.jfif';
+import Vue from '../../images/vue.jpg';
 
 const UI = () => {
     return ( 
@@ -13,7 +13,7 @@ const UI = () => {
             <Card styles = "ui1" image = {Angular}/>
             <Card styles = "ui2" image = {ReactLogo}/>
             <Card styles = "ui3" image = {Vue}/>
-            <Button text = "Back" styles = "back"/>
+            <Button text="Back" styles="back" onClick=""/>
         </React.Fragment>
      );
 }

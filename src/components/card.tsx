@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 Imr source and css class styling will be passed in as props to the component
 */
 
-const CardComponent  = ({styles, image}) => {
+const CardComponent  = ({styles, image}: {styles: any, image: any}) => {
     return ( 
         <Card.Body className = {styles}  >
         <Card.Img src= {image}/>

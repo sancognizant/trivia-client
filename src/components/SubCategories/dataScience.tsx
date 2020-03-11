@@ -11,7 +11,7 @@ const DataScience = () => {
         <React.Fragment>
           <Card styles = "dataScience1" image = {Statistics}/>
           <Card styles = "dataScience2" image = {Ai}/>
-          <Button text = "Back" styles = "back"/>
+        <Button text="Back" styles="back" onClick=""/>
         </React.Fragment>
       );
 }
