@@ -17,21 +17,22 @@ interface questionsListInter {
 }
 
 interface questionNumberInter {
-	questionNumber: number
+	currentQuestion: number
 }
+
 const Quiz = () => {
 	const [ questionsList, setQuestionsList ] = useState<questionsListInter[]>([]);
-	const [ questionNumber, setQuestionNumber ] = useState<questionNumberInter>({questionNumber: 1});
+	const [ questionNumber, setQuestionNumber ] = useState<questionNumberInter>({currentQuestion: 1});
 
 	useEffect(
 		() => {
 			setQuestionsList(questions);
 		},
-		[ questionsList ]
+		[ questions ]
 	);
 
-	const incrementNumber = () => {
-		setQuestionNumber({questionNumber: questionNumber.questionNumber+ 1});
+	const handleIncrementNumber = () => {
+		setQuestionNumber({currentQuestion: questionNumber.currentQuestion+ 1});
     };
     
 	/*
@@ -40,9 +41,9 @@ render counter only if the number of questions have been set correctly from the 
 	return (
 		<div>
 			{questionsList.length !== 0 ? (
-				<Counter totalNumber={questionsList.length} activeNumber={questionNumber.questionNumber} />
+				<Counter totalNumber={questionsList.length} activeNumber={questionNumber.currentQuestion} />
 			) : null}
-			<Button text="submit" styles="back" onClick={incrementNumber} />
+			<Button text="submit" styles="back" onClick={handleIncrementNumber} />
 		</div>
 	);
 };

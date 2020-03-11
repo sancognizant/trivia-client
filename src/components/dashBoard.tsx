@@ -13,12 +13,7 @@ import Design from '../images/design.jpg';
 import CyberSecurity from '../images/cybersecurity2.jpg';
 import NavBar from './navBar';
 
-/*
-Image size: width: 27.09
-            height:14.68
-*/
 
-// adjust the design card and cybersecurity card 
 const DashBoard = () => {
     return ( 
         <>

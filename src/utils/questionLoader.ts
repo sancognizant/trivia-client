@@ -19,7 +19,7 @@
 
     {question: 'Who is the founder of Microsoft?',
     choices: "Bill Gatsby|Ben Gates|Bill Gates",
-    answer: 2},
+    answer: 2}
  ]
 
  export {questions};

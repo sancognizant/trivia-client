@@ -5,30 +5,39 @@ import Pagination from 'react-bootstrap/Pagination';
     items: array containing the pagination numbers
     questionLength: total number of questions
     active: current question
-*/ 
-const Counter = ({ totalNumber, activeNumber }: {totalNumber: number, activeNumber: number}) => {
-	const [ items, setItems ] = useState([]);
-	const [ questionLength, setQuestionLength ] = useState(0);
-	const [ active, setActive ] = useState(0);
+*/
+
+interface questionLengthInterface {
+	numberQuestions: number;
+}
+
+interface activeInterface {
+	currentQuestion: number;
+}
+const Counter = ({ totalNumber, activeNumber }: { totalNumber: number, activeNumber: number }) => {
+	const [items, setItems] = useState([]);
+	const [questionLength, setQuestionLength] = useState<questionLengthInterface>({ numberQuestions: 0 });
+	const [active, setActive] = useState<activeInterface>({ currentQuestion: 1 });
+	
 	/*
     initialize the number of items to be displayed and the active question number
     */
 
 	useEffect(
 		() => {
-			setQuestionLength(totalNumber);
-			setActive(activeNumber);
+			setQuestionLength({ numberQuestions: totalNumber });
+			setActive({ currentQuestion: activeNumber });
 		},
-		[ activeNumber, totalNumber ]
+		[activeNumber, totalNumber]
 	);
 
 	useEffect(
 		() => {
-			if (active <= questionLength) {
+			if (active.currentQuestion <= questionLength.numberQuestions) {
 				let itemsCopy: any = [];
-				for (let number = 1; number <= questionLength; number++) {
+				for (let number = 1; number <= questionLength.numberQuestions; number++) {
 					itemsCopy.push(
-						<Pagination.Item key={number} active={number === active}>
+						<Pagination.Item key={number} active={number === active.currentQuestion}>
 							{number}
 						</Pagination.Item>
 					);
@@ -36,7 +45,7 @@ const Counter = ({ totalNumber, activeNumber }: {totalNumber: number, activeNumb
 				setItems(itemsCopy);
 			}
 		},
-		[active, questionLength]
+		[active.currentQuestion, questionLength.numberQuestions]
 	);
 
 	return <Pagination>{items}</Pagination>;

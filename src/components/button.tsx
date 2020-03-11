@@ -1,13 +1,7 @@
 import React from 'react';
 
-// interface buttonProps {
-//     styles: any;
-//     text: String;
-//     onClick: any;
-// }
 
-const Button = ({styles,text,onClick}: {styles: any, text: String, onClick: any}) => {
-    //const {styles, text, onClick} = props;
+const Button = ({styles,text,onClick}: {styles: any, text: string, onClick: any}) => {
     return (  
      <button 
      type="button" 
