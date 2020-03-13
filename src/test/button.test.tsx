@@ -16,6 +16,7 @@ function renderButtonForm(props: Partial<propTypes> = {}) {
 
 
 describe("<Button />", () => {
+
     test("should render button and locate button id", async () => {
         const{ findByTestId } = renderButtonForm();
 
@@ -25,6 +26,20 @@ describe("<Button />", () => {
         expect(buttonComponent).toBeTruthy();
     });
 
-    
+    test("test on click method event", async (done) => {
+
+       const handleClick = () => {
+            done();
+        }
+
+        const { findByTestId } = renderButtonForm({styles: "", text:  "", onClick: handleClick});
+
+        // finds the button by test id = 'Button'
+        const buttonComponent = await findByTestId('button');
+
+        fireEvent.click(buttonComponent);
+    });
+
+
 });
 

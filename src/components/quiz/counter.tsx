@@ -7,14 +7,19 @@ import Pagination from 'react-bootstrap/Pagination';
     active: current question
 */
 
-interface questionLengthInterface {
+ export interface questionLengthInterface {
 	numberQuestions: number;
 }
 
-interface activeInterface {
+export interface activeInterface {
 	currentQuestion: number;
 }
-const Counter = ({ totalNumber, activeNumber }: { totalNumber: number, activeNumber: number }) => {
+
+export interface propTypes {
+	totalNumber: number;
+	activeNumber: number;
+}
+const Counter = ({ totalNumber, activeNumber }: propTypes) => {
 	const [items, setItems] = useState([]);
 	const [questionLength, setQuestionLength] = useState<questionLengthInterface>({ numberQuestions: 0 });
 	const [active, setActive] = useState<activeInterface>({ currentQuestion: 1 });
@@ -48,7 +53,7 @@ const Counter = ({ totalNumber, activeNumber }: { totalNumber: number, activeNum
 		[active.currentQuestion, questionLength.numberQuestions]
 	);
 
-	return <Pagination>{items}</Pagination>;
+	return <Pagination data-testid = "pagination">{items}</Pagination>;
 };
 
 export default Counter;
