@@ -7,7 +7,7 @@ import Pagination from 'react-bootstrap/Pagination';
     active: current question
 */
 
- export interface questionLengthInterface {
+export interface questionLengthInterface {
 	numberQuestions: number;
 }
 
@@ -19,6 +19,7 @@ export interface propTypes {
 	totalNumber: number;
 	activeNumber: number;
 }
+
 const Counter = ({ totalNumber, activeNumber }: propTypes) => {
 	const [items, setItems] = useState([]);
 	const [questionLength, setQuestionLength] = useState<questionLengthInterface>({ numberQuestions: 0 });
@@ -27,6 +28,18 @@ const Counter = ({ totalNumber, activeNumber }: propTypes) => {
 	/*
     initialize the number of items to be displayed and the active question number
     */
+
+	const addItems = (totalQuestions: number, activeQuestion: number, itemsCopy: any[]) => {
+		for (let number = 1; number <= totalQuestions; number++) {
+			itemsCopy.push(
+				<Pagination.Item key={number} active={number === activeQuestion}>
+					{number}
+				</Pagination.Item>
+			);
+		}
+
+		return itemsCopy;
+	}
 
 	useEffect(
 		() => {
@@ -39,17 +52,11 @@ const Counter = ({ totalNumber, activeNumber }: propTypes) => {
 	useEffect(
 		() => {
 			if (active.currentQuestion <= questionLength.numberQuestions) {
-				let itemsCopy: any = [];
-				for (let number = 1; number <= questionLength.numberQuestions; number++) {
-					itemsCopy.push(
-						<Pagination.Item key={number} active={number === active.currentQuestion}>
-							{number}
-						</Pagination.Item>
-					);
-				}
+				 let itemsCopy: any = [];
+				itemsCopy = addItems(questionLength.numberQuestions, active.currentQuestion, itemsCopy);
 				setItems(itemsCopy);
-			}
-		},
+				}
+			},
 		[active.currentQuestion, questionLength.numberQuestions]
 	);
 

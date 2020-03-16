@@ -25,6 +25,4 @@ describe("<Counter />", () => {
         expect(buttonComponent).toBeTruthy();
     });
 
-
-
 });

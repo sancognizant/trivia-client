@@ -3,7 +3,6 @@ import Counter from './counter';
 import { questions } from '../../utils/questionLoader';
 import '../../scss/buttonStyle.scss';
 import Button from '../button';
-import { any } from 'prop-types';
 
 /*
 questionList: set the total number of questions from api call 
@@ -12,7 +11,7 @@ questionNumber: current question that user is attempting
 
 interface questionsListInter {
 	question: string,
-	choices: string,
+	choices: string[],
 	answer: number
 }
 
@@ -39,11 +38,13 @@ const Quiz = () => {
 render counter only if the number of questions have been set correctly from the api
     */
 	return (
-		<div>
+		<div data-testid = "quiz-container">
 			{questionsList.length !== 0 ? (
+				<div data-testid = "quiz-component">
 				<Counter totalNumber={questionsList.length} activeNumber={questionNumber.currentQuestion} />
+				<Button text="submit" styles="back" onClick={handleIncrementNumber} />
+				</div>
 			) : null}
-			<Button text="submit" styles="back" onClick={handleIncrementNumber} />
 		</div>
 	);
 };
