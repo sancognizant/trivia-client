@@ -16,11 +16,12 @@ export interface activeInterface {
 }
 
 export interface propTypes {
+	styles: string;
 	totalNumber: number;
 	activeNumber: number;
 }
 
-const Counter = ({ totalNumber, activeNumber }: propTypes) => {
+const Counter = ({ styles, totalNumber, activeNumber }: propTypes) => {
 	const [items, setItems] = useState([]);
 	const [questionLength, setQuestionLength] = useState<questionLengthInterface>({ numberQuestions: 0 });
 	const [active, setActive] = useState<activeInterface>({ currentQuestion: 1 });
@@ -60,7 +61,7 @@ const Counter = ({ totalNumber, activeNumber }: propTypes) => {
 		[active.currentQuestion, questionLength.numberQuestions]
 	);
 
-	return <Pagination data-testid = "pagination">{items}</Pagination>;
+	return <Pagination className = {styles} data-testid = "pagination">{items}</Pagination>;
 };
 
 export default Counter;
