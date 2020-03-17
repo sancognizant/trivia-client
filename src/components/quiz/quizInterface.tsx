@@ -47,7 +47,7 @@ const Quiz = (): React.ReactElement => {
 	const renderLoading = <span>Loading</span>
 
     /*
-render counter only if the number of questions have been set correctly from the api
+render quiz components only if the number of questions are greater than 0.
     */
 	return (
 		<div data-testid="quiz-container">
