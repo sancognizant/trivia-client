@@ -10,9 +10,9 @@ import Vue from '../../images/vue.jpg';
 const UI = () => {
     return ( 
         <React.Fragment>
-            <Card styles = "ui1" image = {Angular}/>
+            {/* <Card styles = "ui1" image = {Angular}/>
             <Card styles = "ui2" image = {ReactLogo}/>
-            <Card styles = "ui3" image = {Vue}/>
+            <Card styles = "ui3" image = {Vue}/> */}
             <Button text="Back" styles="back" onClick=""/>
         </React.Fragment>
      );

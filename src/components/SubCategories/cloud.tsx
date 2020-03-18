@@ -10,10 +10,10 @@ import Gcp from '../../images/gcp.png';
 const Cloud = () => {
     return (
         <React.Fragment>
-        <Card styles = "cloud1" image = {Azure}/>
+        {/* <Card styles = "cloud1" image = {Azure}/>
         <Card styles = "cloud2" image = {Aws}/>
         <Card styles = "cloud3" image = {Gcp}/> 
-        <Button text="Back" styles="back" onClick=""/>
+        <Button text="Back" styles="back" onClick=""/> */}
       </React.Fragment>
       );
 }

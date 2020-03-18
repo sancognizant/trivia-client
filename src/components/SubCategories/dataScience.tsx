@@ -9,8 +9,8 @@ import Button from '../button/button';
 const DataScience = () => {
     return (
         <React.Fragment>
-          <Card styles = "dataScience1" image = {Statistics}/>
-          <Card styles = "dataScience2" image = {Ai}/>
+          {/* <Card styles = "dataScience1" image = {Statistics}/>
+          <Card styles = "dataScience2" image = {Ai}/> */}
         <Button text="Back" styles="back" onClick=""/>
         </React.Fragment>
       );

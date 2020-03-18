@@ -11,9 +11,9 @@ import Button from '../button/button';
 const Analytics = () => {
     return (  
         <React.Fragment>
-        <Card styles = "analytics1" image = {Datamining}/>
+        {/* <Card styles = "analytics1" image = {Datamining}/>
         <Card styles = "analytics2" image = {Bigdata}/>
-        <Button text = "Back" styles = "back" onClick = ""/>
+        <Button text = "Back" styles = "back" onClick = ""/> */}
         </React.Fragment>
     );
 }

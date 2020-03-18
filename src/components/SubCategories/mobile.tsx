@@ -9,8 +9,8 @@ import Ios from '../../images/ios.png'
 const Mobile = () => {
     return (
         <React.Fragment>
-        <Card styles = "mobile1" image = {Android}/>
-        <Card styles = "mobile2" image = {Ios}/>
+        {/* <Card styles = "mobile1" image = {Android}/>
+        <Card styles = "mobile2" image = {Ios}/> */}
         <Button text="Back" styles="back" onClick=""/>
       </React.Fragment>
       );
