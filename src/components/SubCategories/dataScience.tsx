@@ -1,10 +1,10 @@
 import React from 'react';
-import Card from '../card';
+import Card from '../card/card';
 import '../../scss/cardStyling.scss';
 import '../../scss/buttonStyle.scss';
 import Statistics from '../../images/statistics.png';
 import Ai from '../../images/ai.jpg';
-import Button from '../button';
+import Button from '../button/button';
 
 const DataScience = () => {
     return (

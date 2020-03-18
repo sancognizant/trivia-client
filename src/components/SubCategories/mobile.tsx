@@ -1,8 +1,8 @@
 import React from 'react';
-import Card from '../card';
+import Card from '../card/card';
 import '../../scss/cardStyling.scss';
 import '../../scss/buttonStyle.scss';
-import Button from '../button';
+import Button from '../button/button';
 import Android from '../../images/android.png';
 import Ios from '../../images/ios.png'
 

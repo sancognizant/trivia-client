@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Counter from './counter';
+import Counter from '../counter/counter';
 import '../../scss/buttonStyle.scss';
-import '../../scss/quiz.scss';
-import Button from '../button';
-import { questions } from '../../utils/questionLoader';
-
+import Button from '../../button/button';
+import { questions } from '../../../utils/questionLoader';
 
 /*
 questionList: set the total number of questions from api call 
@@ -20,7 +18,7 @@ interface questionNumberInter {
 	currentQuestion: number
 }
 
-const Quiz = (): React.ReactElement => {
+const Quiz = () => {
 	const [questionsList, setQuestionsList] = useState<questionsListInter[]>([]);
 
 	const [questionNumber, setQuestionNumber] = useState<questionNumberInter>({ currentQuestion: 1 });
@@ -40,14 +38,10 @@ const Quiz = (): React.ReactElement => {
 
 	const handleFormSubmit = (e: any) => {
 		console.log(alias);
-		handleIncrementNumber();
-		e.preventDefault();
 	}
 
-	const renderLoading = <span>Loading</span>
-
-    /*
-render quiz components only if the number of questions are greater than 0.
+	/*
+render counter only if the number of questions have been set correctly from the api
     */
 	return (
 		<div data-testid="quiz-container">
@@ -57,16 +51,20 @@ render quiz components only if the number of questions are greater than 0.
 					<div className="questionComponent">
 						<form onSubmit={handleFormSubmit}>
 							<div className="User">
-								<label className = "questionLabel">Username</label>
-								<div className = "choices">
-									
-								</div>
+								<label>Username</label>
+								<input
+									type="text"
+									name="name"
+									onChange={event => setAlias(event.target.value)}
+									value={alias}
+									placeholder="Please enter name/alias"
+								/>
 							</div>
 						</form>
 					</div>
 					<Button text="submit" styles="back" onClick={handleFormSubmit} />
 				</div>
-			) : (renderLoading)}
+			) : null}
 		</div>
 	);
 };

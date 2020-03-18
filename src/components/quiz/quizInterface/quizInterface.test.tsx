@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, waitForElement } from "@testing-library/react";
-import Quiz from '../components/quiz/quizInterface';
+import Quiz from './quizInterface';
 
 // helper function that renders quiz component
 function renderQuizComponent() {
