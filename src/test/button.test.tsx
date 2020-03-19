@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, waitForElement } from "@testing-library/react";
-import Button, {propTypes} from './button';
+import Button, {propTypes} from '../components/button';
 
 
 // helper function that observes the props, changes to props in actual component will throw err here

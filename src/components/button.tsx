@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface propTypes {
-    styles: string; text: string; onClick: any;
+    styles: any; text: string; onClick: any;
 }
 
 const Button = ({styles,text,onClick}: propTypes) => {
