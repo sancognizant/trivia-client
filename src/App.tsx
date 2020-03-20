@@ -21,7 +21,7 @@ const App: React.FC = () => {
       {/* <Mobile/> */}
       {/* <Cloud/> */}
       {/* <UI/> */}
-      <CyberSecurity/>
+      {/* <CyberSecurity/> */}
       {/* <QuizInterface/> */}
       {/* <Counter/> */}
     </div>

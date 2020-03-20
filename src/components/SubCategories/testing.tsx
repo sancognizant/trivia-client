@@ -1,17 +1,36 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Card from '../card/card';
-import '../../scss/cardStyling.scss';
-import '../../scss/buttonStyle.scss';
+import '../card/cardStyling.scss';
+import '../button/buttonStyle.scss';
 import Button from '../button/button';
-import ManualTesting from '../../images/manualtesting.jpg';
-import AutomatedTesting from '../../images/automatedtesting.jpg';
+import {getTestingImages} from '../../service/imageLoader';
+
 
 const Testing = () => {
+
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    getTestingImages().then(imagePath => {
+      setImages(imagePath);
+    });
+  }, []);
+
     return ( 
-        <React.Fragment>
-        {/* <Card styles = "testing1" image = {ManualTesting}/>
-        <Card styles = "testing2" image = {AutomatedTesting}/> */}
-        <Button text="Back" styles="back" onClick=""/>
+      <React.Fragment>
+        <div className="cards">
+          {images !== undefined ?
+            (images.map((img: any) => {
+              return (
+                <React.Fragment>
+                  <Card crd="card" crd_image="card__image" crd_item="cards__item" image={img.path} />
+                  <Button styles="back" text="Back" onClick="" />
+                </React.Fragment>
+
+              )
+            })) : null
+          }
+        </div>
       </React.Fragment>
      );
 }

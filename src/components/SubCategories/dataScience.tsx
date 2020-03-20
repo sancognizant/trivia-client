@@ -1,18 +1,36 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Card from '../card/card';
-import '../../scss/cardStyling.scss';
-import '../../scss/buttonStyle.scss';
-import Statistics from '../../images/statistics.png';
-import Ai from '../../images/ai.jpg';
+import '../card/cardStyling.scss';
+import '../button/buttonStyle.scss';
 import Button from '../button/button';
+import {getdataScienceImages} from '../../service/imageLoader';
 
 const DataScience = () => {
+
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    getdataScienceImages().then(imagePath => {
+      setImages(imagePath);
+    });
+  }, []);
+
     return (
-        <React.Fragment>
-          {/* <Card styles = "dataScience1" image = {Statistics}/>
-          <Card styles = "dataScience2" image = {Ai}/> */}
-        <Button text="Back" styles="back" onClick=""/>
-        </React.Fragment>
+      <React.Fragment>
+        <div className="cards">
+          {images !== undefined ?
+            (images.map((img: any) => {
+              return (
+                <React.Fragment>
+                  <Card crd="card" crd_image="card__image" crd_item="cards__item" image={img.path} />
+                  <Button styles="back" text="Back" onClick="" />
+                </React.Fragment>
+
+              )
+            })) : null
+          }
+        </div>
+      </React.Fragment>
       );
 }
  
