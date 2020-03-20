@@ -1,22 +1,39 @@
-import React from 'react';
-import Card from '../card';
-import '../../scss/cardStyling.scss';
-import '../../scss/buttonStyle.scss';
-import Button from '../button';
-import Malware from '../../images/malware.jpg';
-import Privacy from '../../images/privacy.png';
-import Databreach from '../../images/databreach.png';
+import React, {useState, useEffect} from 'react';
+import Card from '../card/card';
+import '../card/cardStyling.scss';
+import '../button/buttonStyle.scss';
+import Button from '../button/button';
+import { getCyberSecurityImages } from '../../service/imageLoader';
+
 
 
 
 const CyberSecurity = () => {
+
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        getCyberSecurityImages().then(imagePath => {
+            setImages(imagePath);
+        });
+    }, []);
+
     return ( 
         <React.Fragment>
-        <Card styles = "cyber1" image = {Malware}/>
-        <Card styles = "cyber2" image = {Privacy}/>
-        <Card styles = "cyber3" image = {Databreach}/>
-            <Button text="Back" styles="back" onClick=""/>
-    </React.Fragment>
+            <div className="cards">
+                {images !== undefined ?
+                    (images.map((img: any) => {
+                        return (
+                            <React.Fragment>
+                                <Card crd="card" crd_image="card__image" crd_item="cards__item" image={img.path} />
+                                <Button styles="back" text="Back" onClick="" />
+                            </React.Fragment>
+
+                        )
+                    })) : null
+                }
+            </div>
+        </React.Fragment>
      );
 }
  

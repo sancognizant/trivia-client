@@ -1,21 +1,37 @@
-import React from 'react';
-import Card from '../card';
-import '../../scss/cardStyling.scss';
-import '../../scss/buttonStyle.scss';
-import Button from '../button';
-import Azure from '../../images/azure.png';
-import Aws from '../../images/aws.png';
-import Gcp from '../../images/gcp.png';
+import React, { useState, useEffect } from 'react';
+import Card from '../card/card';
+import '../card/cardStyling.scss';
+import '../button/buttonStyle.scss';
+import Button from '../button/button';
+import { getCloudImages } from '../../service/imageLoader';
 
 const Cloud = () => {
-    return (
-        <React.Fragment>
-        <Card styles = "cloud1" image = {Azure}/>
-        <Card styles = "cloud2" image = {Aws}/>
-        <Card styles = "cloud3" image = {Gcp}/> 
-        <Button text="Back" styles="back" onClick=""/>
+
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    getCloudImages().then(imagePath => {
+      setImages(imagePath);
+    });
+  }, []);
+
+  return (
+      <React.Fragment>
+        <div className="cards">
+          {images !== undefined ?
+            (images.map((img: any) => {
+              return (
+                <React.Fragment>
+                  <Card crd="card" crd_image="card__image" crd_item="cards__item" image={img.path} />
+                  <Button styles="back" text="Back" onClick="" />
+                </React.Fragment>
+
+              )
+            })) : null
+          }
+        </div>
       </React.Fragment>
-      );
+  );
 }
- 
+
 export default Cloud;

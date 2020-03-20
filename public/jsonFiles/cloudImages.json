@@ -1,0 +1,11 @@
+    [{
+        "path": "/images/azure.png"
+    },
+
+    {
+        "path": "/images/aws.png"
+    },
+
+    {
+        "path": "/images/gcp.png"
+    }]

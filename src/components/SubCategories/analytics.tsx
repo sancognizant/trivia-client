@@ -1,19 +1,38 @@
-import React from 'react';
-import Card from '../card';
-import '../../scss/cardStyling.scss';
-import '../../scss/buttonStyle.scss';
-import Datamining from '../../images/datamining2.jpg';
-import Bigdata from "../../images/bigdata.jpg";
-import Button from '../button';
+import React, {useState, useEffect} from 'react';
+import Card from '../card/card';
+import '../card/cardStyling.scss';
+import '../button/buttonStyle.scss';
+import Button from '../button/button';
+import {getAnalyticsImages} from '../../service/imageLoader';
+
 
 
 
 const Analytics = () => {
+
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        getAnalyticsImages().then(imagePath => {
+            setImages(imagePath);
+        });
+    }, []);
+
     return (  
         <React.Fragment>
-        <Card styles = "analytics1" image = {Datamining}/>
-        <Card styles = "analytics2" image = {Bigdata}/>
-        <Button text = "Back" styles = "back" onClick = ""/>
+            <div className="cards">
+                {images !== undefined ?
+                    (images.map((img: any) => {
+                        return (
+                            <React.Fragment>
+                            <Card crd="card" crd_image="card__image" crd_item="cards__item" image={img.path} />
+                            <Button styles = "back" text = "Back" onClick = "" />
+                            </React.Fragment>
+                            
+                        )
+                    })) : null
+                }
+            </div>
         </React.Fragment>
     );
 }
