@@ -22,7 +22,7 @@ const App: React.FC = () => {
       {/* <Cloud/> */}
       {/* <UI/> */}
       {/* <CyberSecurity/> */}
-      {/* <QuizInterface/> */}
+      <QuizInterface/>
       {/* <Counter/> */}
     </div>
   );

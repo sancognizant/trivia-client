@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Counter from '../counter/counter';
-import '../../scss/buttonStyle.scss';
+import '../../button/buttonStyle.scss'
 import Button from '../../button/button';
-import { questions } from '../../../utils/questionLoader';
+import {getQuestions} from '../../../service/questionsLoader';
 
 /*
 questionList: set the total number of questions from api call 
@@ -20,27 +20,45 @@ interface questionNumberInter {
 	currentQuestion: number
 }
 
+interface answerInterface {
+	answer: string;
+}
+
+
 const Quiz = () => {
 	const [questionsList, setQuestionsList] = useState<questionsListInter[]>([]);
 
 	const [questionNumber, setQuestionNumber] = useState<questionNumberInter>({ currentQuestion: 1 });
 
-	const [alias, setAlias] = useState("");
+	const [currentQuestion, setCurrentQuestion] = useState<questionsListInter>({question: "test", choices: [], answer: 0});
+
+	const[response, setResponse] = useState<answerInterface>({answer: ""});
 
 	useEffect(
 		() => {
-			setQuestionsList(questions);
+			getQuestions().then((questions: any) => {
+				setQuestionsList(questions);
+				setCurrentQuestion(questions[0]);
+			})
 		},
-		[questions]
-	);
-
+		[]
+	); 
+	 
+	// increment counter
 	const handleIncrementNumber = () => {
 		setQuestionNumber({ currentQuestion: questionNumber.currentQuestion + 1 });
 	};
 
+	// set the next question, increment the counter and display the results attempted
 	const handleFormSubmit = (e: any) => {
-		console.log(alias);
+		//console.log(`User answered ${response.answer} for ${currentQuestion.question}`);
+
+		setCurrentQuestion(questionsList[questionNumber.currentQuestion]);
+
+		handleIncrementNumber();
 	}
+
+
 
 	/*
 render counter only if the number of questions have been set correctly from the api
@@ -52,16 +70,25 @@ render counter only if the number of questions have been set correctly from the 
 					<Counter styles = "counter" totalNumber={questionsList.length} activeNumber={questionNumber.currentQuestion} />
 					<div className="questionComponent">
 						<form onSubmit={handleFormSubmit}>
-							<div className="User">
-								<label>Username</label>
-								<input
-									type="text"
-									name="name"
-									onChange={event => setAlias(event.target.value)}
-									value={alias}
-									placeholder="Please enter name/alias"
-								/>
-							</div>
+						<label>{currentQuestion.question}</label>
+						<div>
+							{currentQuestion.choices ? (
+									currentQuestion.choices.map((choice, index) => {
+										return (
+											<div key={index}>
+												<input
+													className="radio-btn-choices"
+													type= "radio"
+													name="choice"
+													value = {index}
+													onChange={(event) => setResponse({answer: event.target.value})}
+												/>
+												{choice}
+											</div>
+										);
+									})
+								): null}
+						</div>
 						</form>
 					</div>
 					<Button text="submit" styles="back" onClick={handleFormSubmit} />
