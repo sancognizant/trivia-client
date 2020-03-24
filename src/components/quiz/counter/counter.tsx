@@ -10,13 +10,6 @@ import Pagination from 'react-bootstrap/Pagination';
 	current question that user is attempting 
 */
 
-export interface questionLengthInterface {
-	numberQuestions: number;
-}
-
-export interface activeInterface {
-	currentQuestion: number;
-}
 
 export interface propTypes {
 	styles: string;
@@ -24,47 +17,67 @@ export interface propTypes {
 	activeNumber: number;
 }
 
-const Counter = ({ styles, totalNumber, activeNumber }: propTypes) => {
+const Counter = ({ styles, totalNumber, activeNumber}: propTypes) => {
 	const [items, setItems] = useState([]);
-	const [questionLength, setQuestionLength] = useState<questionLengthInterface>({ numberQuestions: 0 });
-	const [active, setActive] = useState<activeInterface>({ currentQuestion: 1 });
+	const [questionLength, setQuestionLength] = useState<number>(0);
+	const [active, setActive] = useState<number>(1);
 	
 	/*
     initialize the number of items to be displayed and the active question number
     */
-
 	const addItems = (totalQuestions: number, activeQuestion: number, itemsCopy: any[]) => {
-		for (let number = 1; number <= totalQuestions; number++) {
 			itemsCopy.push(
-				<Pagination.Item key={number} active={number === activeQuestion}>
-					{number}
+				<Pagination.Item key={activeQuestion} active= {true}>
+					{activeQuestion}
 				</Pagination.Item>
 			);
-		}
+		itemsCopy.push(
+			<Pagination.Item key = {500}>
+				of
+			</Pagination.Item>
+		);
 
-		return itemsCopy;
+		itemsCopy.push(
+			<Pagination.Item key={1000}>
+				{totalQuestions}
+			</Pagination.Item>
+		);
+
+
+	 	return itemsCopy;
 	}
 
+	/*
+	Set the total number of questions and the current question number 
+	*/
 	useEffect(
 		() => {
-			setQuestionLength({ numberQuestions: totalNumber });
-			setActive({ currentQuestion: activeNumber });
+			setQuestionLength(totalNumber);
+			setActive(activeNumber);
 		},
 		[activeNumber, totalNumber]
 	);
 
+	/*
+	If the current active question number changes, set the counter again 
+	*/
 	useEffect(
 		() => {
-			if (active.currentQuestion <= questionLength.numberQuestions) {
+			if (active <= questionLength) {
 				 let itemsCopy: any = [];
-				itemsCopy = addItems(questionLength.numberQuestions, active.currentQuestion, itemsCopy);
+				itemsCopy = addItems(questionLength, active, itemsCopy);
 				setItems(itemsCopy);
 				}
 			},
-		[active.currentQuestion, questionLength.numberQuestions]
+		[active, questionLength]
 	);
 
-	return <Pagination className = {styles} data-testid = "pagination">{items}</Pagination>;
+	return(
+		
+		<Pagination className={styles} data-testid="pagination">
+		{items}
+		</Pagination>
+	)
 };
 
 export default Counter;
