@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Counter from '../counter/counter';
 import '../../button/buttonStyle.scss'
+import './quiz.scss';
 import Button from '../../button/button';
 import {getQuestions} from '../../../service/questionsLoader';
 
@@ -70,21 +71,21 @@ render counter only if the number of questions have been set correctly from the 
 					<Counter styles = "counter" totalNumber={questionsList.length} activeNumber={questionNumber.currentQuestion} />
 					<div className="questionComponent">
 						<form onSubmit={handleFormSubmit}>
-						<label>{currentQuestion.question}</label>
-						<div>
+						<label className = "questionLabel">{currentQuestion.question}</label>
+						<div className = "choices">
 							{currentQuestion.choices ? (
 									currentQuestion.choices.map((choice, index) => {
 										return (
-											<div key={index}>
+											 <div key={index} className= "form-group">	
 												<input
-													className="radio-btn-choices"
+													className="form-check-input"
 													type= "radio"
 													name="choice"
 													value = {index}
 													onChange={(event) => setResponse({answer: event.target.value})}
 												/>
-												{choice}
-											</div>
+												<label className="labelChoice" htmlFor="choice">{choice}</label>
+											 </div>
 										);
 									})
 								): null}
