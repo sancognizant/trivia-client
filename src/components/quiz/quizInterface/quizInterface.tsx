@@ -4,6 +4,7 @@ import '../../button/buttonStyle.scss'
 import './quiz.scss';
 import Button from '../../button/button';
 import {getQuestions} from '../../../service/questionsLoader';
+import Choices from '../choices/choices';
 
 /*
 questionList: set the total number of questions from api call 
@@ -33,7 +34,7 @@ const Quiz = () => {
 
 	const [currentQuestion, setCurrentQuestion] = useState<questionsListInter>({question: "test", choices: [], answer: 0});
 
-	const[response, setResponse] = useState<answerInterface>({answer: ""});
+	const[response, setResponse] = useState<number>(-1);
 
 	useEffect(
 		() => {
@@ -50,10 +51,13 @@ const Quiz = () => {
 		setQuestionNumber({ currentQuestion: questionNumber.currentQuestion + 1 });
 	};
 
+	// get choice and set the user's input into the state 
+	const handleChoice = (answer: number) => {
+		setResponse(answer);
+	}
+
 	// set the next question, increment the counter and display the results attempted
 	const handleFormSubmit = (e: any) => {
-		//console.log(`User answered ${response.answer} for ${currentQuestion.question}`);
-
 		setCurrentQuestion(questionsList[questionNumber.currentQuestion]);
 
 		handleIncrementNumber();
@@ -72,24 +76,7 @@ render counter only if the number of questions have been set correctly from the 
 					<div className="questionComponent">
 						<form onSubmit={handleFormSubmit}>
 						<label className = "questionLabel">{currentQuestion.question}</label>
-						<div className = "choices">
-							{currentQuestion.choices ? (
-									currentQuestion.choices.map((choice, index) => {
-										return (
-											 <div key={index} className= "form-group">	
-												<input
-													className="form-check-input"
-													type= "radio"
-													name="choice"
-													value = {index}
-													onChange={(event) => setResponse({answer: event.target.value})}
-												/>
-												<label className="labelChoice" htmlFor="choice">{choice}</label>
-											 </div>
-										);
-									})
-								): null}
-						</div>
+						<Choices choicesProps = {currentQuestion.choices} handleChoice = {handleChoice}/>
 						</form>
 					</div>
 					<Button text="submit" styles="back" onClick={handleFormSubmit} />

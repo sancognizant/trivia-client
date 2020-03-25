@@ -1,0 +1,45 @@
+.choices {
+    /* Radio / Not checked */
+    position: absolute;
+    width: 283px;
+    height: 70px;
+    left: -6%;
+    top: 20%;
+    display: grid;
+    grid-template-columns: 80%;
+    justify-content: center;
+}
+
+.choice {
+    // /* Option 1 */
+
+    position: absolute;
+    width: 271px;
+    height: 36px;
+    left: 38px;
+    top: 16px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 134.77%;
+    /* or 27px */
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+
+    color: #000000;
+}
+
+.labelChoice {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 5%;
+    justify-items: center;
+    align-items: center;
+    margin-left: 120px;
+    margin-bottom: 4%;
+    white-space: nowrap;
+    font-weight: bold;
+}
